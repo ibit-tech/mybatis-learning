@@ -24,6 +24,7 @@ public class ScriptRunnerTest {
                 "sa", "")) {
 
             ScriptRunner scriptRunner = new ScriptRunner(connection);
+            scriptRunner.setLogWriter(null);
             scriptRunner.runScript(Resources.getResourceAsReader("init-table.sql"));
         } catch (SQLException | IOException e) {
             e.printStackTrace();

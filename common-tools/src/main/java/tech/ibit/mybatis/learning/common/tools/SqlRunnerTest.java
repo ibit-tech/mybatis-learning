@@ -1,16 +1,14 @@
 package tech.ibit.mybatis.learning.common.tools;
 
-import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.jdbc.SQL;
-import org.apache.ibatis.jdbc.ScriptRunner;
 import org.apache.ibatis.jdbc.SqlRunner;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import tech.ibit.mybatis.learning.commonlib.utils.DbUtils;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -26,19 +24,12 @@ public class SqlRunnerTest {
 
     @Before
     public void init() throws SQLException, IOException {
-        connection = DriverManager.getConnection("jdbc:hsqldb:mem:mybatis-test",
-                "sa", "");
-        ScriptRunner scriptRunner = new ScriptRunner(connection);
-        scriptRunner.setLogWriter(null);
-        scriptRunner.runScript(Resources.getResourceAsReader("init-table.sql"));
-        scriptRunner.runScript(Resources.getResourceAsReader("init-data.sql"));
+        connection = DbUtils.init("jdbc:hsqldb:mem:mybatis-test", "sa", "");
     }
 
     @After
     public void destroy() throws SQLException {
-        if (null != connection) {
-            connection.close();
-        }
+        DbUtils.close(connection);
     }
 
     @Test

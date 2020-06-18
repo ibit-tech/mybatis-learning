@@ -11,6 +11,7 @@
     <modules>
         <module>common-tools</module>
         <module>common-lib</module>
+        <module>first-demo</module>
     </modules>
 
     <properties>
@@ -19,33 +20,6 @@
         <java.version>1.8</java.version>
     </properties>
 
-    <dependencies>
-
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.5.5</version>
-        </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <version>2.5.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.6</version>
-        </dependency>
-
-    </dependencies>
 
     <build>
         <finalName>mybatis-learning</finalName>

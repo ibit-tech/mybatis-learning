@@ -12,6 +12,7 @@
         <module>common-tools</module>
         <module>common-lib</module>
         <module>first-demo</module>
+        <module>configuration-demo</module>
     </modules>
 
     <properties>

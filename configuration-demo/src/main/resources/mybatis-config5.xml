@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <properties resource="db.properties"/>
+
+    <settings>
+        <setting name="useGeneratedKeys" value="true"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="logImpl" value="SLF4J"/>
+        <setting name="defaultEnumTypeHandler" value="tech.ibit.mybatis.learning.configuration.demo.type.CommonEnumTypeHandler"/>
+    </settings>
+
+    <typeAliases>
+        <!--定义数据源别名-->
+        <typeAlias type="tech.ibit.mybatis.learning.configuration.demo.datasource.c3p0.C3p0DataSourceFactory"
+                   alias="C3P0"/>
+    </typeAliases>
+
+    <!--<typeHandlers>-->
+        <!--<typeHandler handler="tech.ibit.mybatis.learning.configuration.demo.type.CommonEnumTypeHandler"-->
+                     <!--javaType="tech.ibit.mybatis.learning.configuration.demo.type.CommonEnum"/>-->
+    <!--</typeHandlers>-->
+
+    <environments default="test">
+        <environment id="test">
+            <transactionManager type="JDBC">
+                <property name="" value=""/>
+            </transactionManager>
+            <dataSource type="C3P0">
+                <property name="driverClass" value="${driver}"/>
+                <property name="jdbcUrl" value="${url}"/>
+                <property name="user" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper class="tech.ibit.mybatis.learning.configuration.demo.mapper.UserMapper"/>
+    </mappers>
+</configuration>

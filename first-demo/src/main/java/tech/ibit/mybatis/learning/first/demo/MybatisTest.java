@@ -48,14 +48,12 @@ public class MybatisTest {
             // 调用openSession()方法创建SqlSession实例
             try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
 
-                // 获取UserMapper代理对象
-                PersonMapper personMapper = sqlSession.getMapper(PersonMapper.class);
-
                 // 通过 SqlSession 示例获取
                 Person person = sqlSession.selectOne("tech.ibit.mybatis.learning.first.demo.mapper.PersonMapper.getPersonById", 1);
                 System.out.println(JSON.toJSONString(person));
 
                 // 执行注解定义的Sql
+                PersonMapper personMapper = sqlSession.getMapper(PersonMapper.class);
                 person = personMapper.getPersonById(1);
                 System.out.println(JSON.toJSONString(person));
 
@@ -68,7 +66,6 @@ public class MybatisTest {
                 persons = personMapper.listAllPersons();
                 System.out.println(JSON.toJSONString(persons));
             }
-
 
         }
 

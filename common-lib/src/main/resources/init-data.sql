@@ -10,3 +10,6 @@ insert into person(person_name, nick_name, title, age, company_id) values ('柒�
 insert into person(person_name, nick_name, title, age, company_id) values ('巴八', '小巴', '运维', 26, 3);
 
 
+insert into user(username, user_type) values ('IBIT科技', 1);
+insert into user(username, user_type) values ('IBIT', 2);
+
